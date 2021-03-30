@@ -1,0 +1,54 @@
+DELETE http://devincubator.by
+Content-Type: application/json
+
+{}
+
+<> 2021-02-03T122402.405.html
+
+###
+
+DELETE http://devincubator.by/images
+Content-Type: application/json
+
+{}
+
+<> 2021-02-03T122351.301.html
+
+###
+
+POST http://devincubator.by/images
+Content-Type: application/json
+
+{}
+
+<> 2021-02-03T122317.301.html
+
+###
+
+POST http://devincubator.by/images/human1.png
+Content-Type: application/json
+
+{}
+
+<> 2021-02-03T122216.200.txt
+
+###
+
+DELETE http://devincubator.by/images/human1.png
+Content-Type: application/json
+
+{}
+
+<> 2021-02-03T122200.405.html
+
+###
+
+POST http://devincubator.by
+Content-Type: application/json
+
+{}
+
+<> 2021-02-03T122114.200.html
+
+###
+
