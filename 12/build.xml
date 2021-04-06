@@ -1,0 +1,44 @@
+<project name="ANaive" default = "copy" >
+
+    <target name="init">
+        <echo message="Building AS_3022GVA Project" />
+    </target>
+
+    <target name="create" depends ="init">
+        <delete dir= "\\172.16.193.69\webapps\AS_3022GVA\" />
+        <mkdir dir= "\\172.16.193.69\webapps\AS_3022GVA\" />
+        <mkdir dir= "\\172.16.193.69\webapps\AS_3022GVA\WEB-INF" />
+        <mkdir dir="\\172.16.193.69\webapps\AS_3022GVA\images"/>
+
+        <delete dir= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
+        <mkdir dir= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
+        <mkdir dir= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\WEB-INF" />
+        <mkdir dir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\images"/>
+    </target>
+
+    <target name="copy" depends ="create">
+        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\WEB-INF\web.xml"
+              todir="\\172.16.193.69\webapps\AS_3022GVA\WEB-INF\" />
+        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\index.html"
+              todir="\\172.16.193.69\webapps\AS_3022GVA\" />
+        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\address.html"
+              todir="\\172.16.193.69\webapps\AS_3022GVA\" />
+        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\education.html"
+              todir="\\172.16.193.69\webapps\AS_3022GVA\" />
+        <copy file="C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\images\1cosmjpg.jpg"
+              todir="\\172.16.193.69\webapps\AS_3022GVA\images"/>
+
+        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\WEB-INF\web.xml"
+              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\WEB-INF\" />
+        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\index.html"
+              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
+        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\address.html"
+              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
+        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\education.html"
+              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
+        <copy file="C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\images\1cosmjpg.jpg"
+              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\images"/>
+    </target>
+
+
+</project>
