@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>StaffTag</short-name>
+    <uri>stafftag.tld</uri>
+
+    <!-- Invoke 'Generate' action to add tags or functions -->
+    <!-- ........................................ -->
+    <tag>
+        <name>name</name>
+        <tag-class>classes.Name</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+    <!-- ........................................ -->
+    <tag>
+        <name>surname</name>
+        <tag-class>classes.Surname</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+    <!-- ........................................ -->
+    <tag>
+        <name>sex</name>
+        <tag-class>classes.Sex</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>submit</name>
+        <tag-class>classes.Submit</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <!-- ........................................ -->
+    <tag>
+        <name>dossier</name>
+        <tag-class>classes.Dossier</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>action</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+
+</taglib>

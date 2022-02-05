@@ -1,0 +1,59 @@
+<project name="Lab13" default="copy">
+
+    <target name="init">
+        <echo message="Building AS_3022GVA Project" />
+        <property name="app" value="C:\Study\1Prog on Internet\Lab13\src\main"/>
+        <property name="server" value="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0"/>
+        <property name = "VPN"
+                  value = "\\172.16.193.69\webapps\AS_3022GVA" />
+        <property name = "work"
+                  value = "C:\Study\1Prog on Internet\Lab13\" />
+    </target>
+
+    <target name="compile" depends="init">
+        <delete verbose="true">
+            <fileset dir="${app}\app\WEB-INF\classes"/>
+        </delete>
+        <javac srcdir="${app}\java"
+               destdir="${app}\app\WEB-INF\classes"
+               includeantruntime="false"
+        >
+            <classpath>
+                <file name="${server}\lib\servlet-api.jar"/>
+                <file name="${server}\lib\commons-httpclient-3.1.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="create" depends ="compile" >
+        <delete dir="${server}\webapps\lab13\" />
+        <mkdir dir= "${server}\webapps\lab13\" />
+
+        <delete dir= "${VPN}images\" />
+        <delete dir= "${VPN}WEB-INF\" />
+        <mkdir dir= "${VPN}\images" />
+        <mkdir dir= "${VPN}\WEB-INF" />
+    </target>
+
+    <target name="copy" depends ="create">
+        <copy todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\lab13\" >
+            <fileset dir="${app}\app" includes="**"/>
+        </copy>
+
+
+        <copy file= "${work}src/main/app/WEB-INF/web.xml"
+              todir="${VPN}\WEB-INF\" />
+        <copy file= "${work}src\main\app\index.html"
+              todir="${VPN}" />
+        <copy file= "src/main/app/address.html"
+              todir="${VPN}" />
+        <copy file= "${work}src\main\app\education.html"
+              todir="${VPN}" />
+        <copy file= "${work}src\main\app\images\1cosmjpg.jpg"
+              todir="${VPN}\images\" />
+        <copy todir="${VPN}\WEB-INF\classes\">
+            <fileset dir="${work}src/main/java"/>
+        </copy>
+    </target>
+
+</project>

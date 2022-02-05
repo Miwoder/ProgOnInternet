@@ -2,43 +2,78 @@
 
     <target name="init">
         <echo message="Building AS_3022GVA Project" />
+        <property name = "server"
+                  value = "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\" />
+        <property name = "work"
+                  value = "C:\Study\1Prog on Internet\12\" />
+        <property name = "VPN"
+                  value = "\\172.16.193.69\webapps\AS_3022GVA" />
+
+        <javac srcdir = "${work}src" destdir = "${work}\build">
+            <classpath>
+                <fileset file= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\lib\servlet-api.jar" />
+                <fileset file= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\lib\commons-httpclient-3.1.jar" />
+            </classpath>
+        </javac>
+<!--        <javac srcdir = "${work}src" destdir = "${work}\build">-->
+<!--            <classpath>-->
+<!--                <fileset file= "${server}lib\commons-codec-1.2.jar" />-->
+<!--                <fileset file= "${server}lib\commons-httpclient-3.0.1.jar" />-->
+<!--                <fileset file= "${server}lib\commons-logging-1.0.3.jar" />-->
+<!--                <fileset file= "${server}lib\junit-3.8.1.jar" />-->
+<!--            </classpath>-->
+<!--        </javac>-->
     </target>
 
-    <target name="create" depends ="init">
-        <delete dir= "\\172.16.193.69\webapps\AS_3022GVA\" />
-        <mkdir dir= "\\172.16.193.69\webapps\AS_3022GVA\" />
-        <mkdir dir= "\\172.16.193.69\webapps\AS_3022GVA\WEB-INF" />
-        <mkdir dir="\\172.16.193.69\webapps\AS_3022GVA\images"/>
+    <target name="compile" depends ="init">
+        <delete verbose ="true">
+            <fileset dir="${work}build"/>
+        </delete>
+        <javac srcdir = "${work}src"
+               destdir = "${work}build"
+               classpath = "${server}lib\servlet-api.jar"/>
+    </target>
 
-        <delete dir= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
-        <mkdir dir= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
-        <mkdir dir= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\WEB-INF" />
-        <mkdir dir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\images"/>
+    <target name="create" depends ="compile">
+        <delete dir= "${server}webapps\AS_3022GVA\" />
+        <mkdir dir= "${server}webapps\AS_3022GVA\" />
+        <mkdir dir= "${server}webapps\AS_3022GVA\images" />
+        <mkdir dir= "${server}webapps\AS_3022GVA\WEB-INF" />
+
+        <delete dir= "${VPN}images\" />
+        <delete dir= "${VPN}WEB-INF\" />
+        <mkdir dir= "${VPN}\images" />
+        <mkdir dir= "${VPN}\WEB-INF" />
     </target>
 
     <target name="copy" depends ="create">
-        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\WEB-INF\web.xml"
-              todir="\\172.16.193.69\webapps\AS_3022GVA\WEB-INF\" />
-        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\index.html"
-              todir="\\172.16.193.69\webapps\AS_3022GVA\" />
-        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\address.html"
-              todir="\\172.16.193.69\webapps\AS_3022GVA\" />
-        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\education.html"
-              todir="\\172.16.193.69\webapps\AS_3022GVA\" />
-        <copy file="C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\images\1cosmjpg.jpg"
-              todir="\\172.16.193.69\webapps\AS_3022GVA\images"/>
+        <copy file= "${work}web\WEB-INF\web.xml"
+              todir="${server}webapps\AS_3022GVA\WEB-INF\" />
+        <copy file= "${work}web\index.html"
+              todir="${server}webapps\AS_3022GVA\" />
+        <copy file= "${work}web\address.html"
+              todir="${server}webapps\AS_3022GVA\" />
+        <copy file= "${work}web\education.html"
+              todir="${server}webapps\AS_3022GVA\" />
+        <copy file= "${work}web\images\1cosmjpg.jpg"
+              todir="${server}webapps\AS_3022GVA\images\" />
+        <copy todir="${server}webapps\AS_3022GVA\WEB-INF\classes">
+            <fileset dir="${work}build"/>
+        </copy>
 
-        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\WEB-INF\web.xml"
-              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\WEB-INF\" />
-        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\index.html"
-              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
-        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\address.html"
-              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
-        <copy file= "C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\education.html"
-              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\" />
-        <copy file="C:\Users\bestb\OneDrive\Рабочий стол\University\1Программирование в Internet\11\web\images\1cosmjpg.jpg"
-              todir="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\AS_3022GVA\images"/>
+        <copy file= "${work}web\WEB-INF\web.xml"
+              todir="${VPN}\WEB-INF\" />
+        <copy file= "${work}web\index.html"
+              todir="${VPN}" />
+        <copy file= "${work}web\address.html"
+              todir="${VPN}" />
+        <copy file= "${work}web\education.html"
+              todir="${VPN}" />
+        <copy file= "${work}web\images\1cosmjpg.jpg"
+              todir="${VPN}\images\" />
+        <copy todir="${VPN}\WEB-INF\classes\">
+            <fileset dir="${work}build"/>
+        </copy>
     </target>
-
 
 </project>

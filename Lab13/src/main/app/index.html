@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Lab13</title>
+</head>
+<body>
+	<h1>Говоронок Вадим Андреевич</h1>
+	<div>
+		<a href="address.html">Адрес</a>
+		<a href="education.html">Образование</a>
+	</div>
+	<div>
+		<a href="Sss?firstname=Vadim&lastname=Govoronok&action=redefine">Sss</a>
+		<a href="Sss?firstname=Vadim&lastname=Govoronok&action=request">request to Ggg</a>
+		<a href="Sss?firstname=Vadim&lastname=Govoronok&destination=html&action=redefine">Sss redirect to HTML</a>
+	</div>
+	<form action="Sss" method="post">
+		<input type="text" name="firstname">
+		<input type="text" name="lastname">
+		<select name="action">
+			<option value="redefine">Redefine POST</option>
+			<option value="redirect">Redirect POST</option>
+			<option value="request">Request to Ggg</option>
+		</select>
+		<input type="submit" name="submit" value="submit">
+	</form>
+</body>
+</html>
