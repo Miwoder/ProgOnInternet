@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+		 
+    <context-param>
+        <param-name>URL1</param-name>
+        <param-value>http://localhost:8085/Labs16/newJSP.jsp</param-value>
+    </context-param>
+	<context-param>
+        <param-name>URL2</param-name>
+        <param-value>http://localhost:8085/Labs16/Ggg</param-value>
+    </context-param>
+    <context-param>
+        <param-name>CBean</param-name>
+        <param-value>old</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>Ttt</servlet-name>
+        <servlet-class>Ttt</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ttt</servlet-name>
+        <url-pattern>/Ttt</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Ggg</servlet-name>
+        <servlet-class>Ggg</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ggg</servlet-name>
+        <url-pattern>/Ggg</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Ccc</servlet-name>
+        <servlet-class>Ccc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ccc</servlet-name>
+        <url-pattern>/Ccc</url-pattern>
+    </servlet-mapping>
+</web-app>

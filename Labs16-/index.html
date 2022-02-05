@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Labs16</title>
+</head>
+<body>
+<br>
+<a href="Ggg?urln=n&firstname=Vadim&lastname=Govoronok">Ggg URL1</a>
+<br><br>
+<a href="Ggg?urln=n&firstname=Vadim&lastname=Govoronok">Ggg URL2</a>
+<br><br>
+<a href="Ggg?urln=&firstname=Vadim&lastname=Govoronok">Ggg without url</a>
+<br><br>
+<a href="StaticContextParams.jsp">Call StaticContextParams.jsp</a>
+<br><br>
+<a href="Ccc?CBean=old">Call Ccc(GET)</a>
+<br><br>
+<form action="Ccc" method="post">
+	<table>  
+	<tr> <td> <label for = "Value1">Value1</label> </td>      
+	     <td> <input type = "text" name="Value1" size = "20"> </td> 
+	</tr>
+	<tr> <td> <label for = "Value2">Value2</label></td>        
+	     <td><input type = "text" name="Value2" size = "20"></td> 
+	</tr> 
+	<tr> <td> <label for = "Value3">Value3</label></td>        
+	     <td><input type = "text" name="Value3" size = "20"></td> 
+	</tr> 
+	</table>
+	<label>Old </label><input type = "radio" name="CBean"  value = "old" size = "20"> 
+	<label>New </label><input type = "radio" name="CBean"  value = "new" size = "20" checked="checked"> 
+	<input type = "submit" name="press"  value = "Call Ccc(POST)" size = "20"> 
+</form>
+</body>
+</html>

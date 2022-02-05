@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app  xmlns="http://java.sun.com/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"      
+      version="2.5">
+<display-name>Labs16</display-name>
+
+<context-param>
+	<description>HTML page URL</description>  
+	<param-name>URL1</param-name> 
+	<param-value>http://localhost:8085/Labs16/html/address.html</param-value>
+</context-param>
+<context-param>
+	<description>Servlet URL</description>  
+	<param-name>URL2</param-name> 
+	<param-value>http://localhost:8085/Labs16/Sss</param-value>
+</context-param>
+
+<servlet>          
+	<servlet-name>Sss</servlet-name>          
+	<servlet-class>Sss</servlet-class>   
+</servlet> 
+<servlet-mapping>        
+	<servlet-name>Sss</servlet-name>       
+	<url-pattern>/Sss</url-pattern>   
+</servlet-mapping>
+<servlet>          
+	<servlet-name>Ggg</servlet-name>          
+	<servlet-class>Ggg</servlet-class>   
+</servlet> 
+<servlet-mapping>        
+	<servlet-name>Ggg</servlet-name>       
+	<url-pattern>/Ggg</url-pattern>   
+</servlet-mapping>
+<servlet>          
+	<servlet-name>Ccc</servlet-name>          
+	<servlet-class>Ccc</servlet-class>   
+</servlet> 
+<servlet-mapping>        
+	<servlet-name>Ccc</servlet-name>       
+	<url-pattern>/Ccc</url-pattern>   
+</servlet-mapping>
+<welcome-file-list>
+	<welcome-file>index.html</welcome-file>
+</welcome-file-list>
+
+</web-app>

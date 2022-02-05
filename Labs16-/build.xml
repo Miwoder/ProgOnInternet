@@ -1,0 +1,49 @@
+<project name = "Lab_16" default = "copy">
+
+    <target name = "init">
+        <echo message="Build Labs16 Project" />
+        <property name = "server"
+                  value = "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\" />
+        <property name = "work"
+                  value = "C:\Study\1Prog on Internet\Labs16-20\" />
+    </target>
+
+    <target name = "compile" depends = "init">
+        <delete verbose = "true">
+            <fileset dir = "${work}build" />
+        </delete>
+
+        <javac srcdir = "${work}src"
+               destdir = "${work}build">
+            <classpath>
+                <fileset file="${work}web\WEB-INF\lib\javax.servlet-api-3.0.1.jar" />
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="create" depends ="compile">
+        <delete dir = "${server}webapps\Labs16\" />
+        <mkdir dir = "${server}webapps\Labs16\" />
+        <mkdir dir = "${server}webapps\Labs16\WEB-INF" />
+        <mkdir dir = "${server}webapps\Labs16\WEB-INF\lib" />
+    </target>
+
+    <target name = "copy" depends = "create">
+        <copy file = "${work}web\WEB-INF\web.xml"
+              todir = "${server}webapps\Labs16\WEB-INF\" />
+
+        <copy todir = "${server}webapps\Labs16\">
+            <fileset dir = "${work}web\" />
+        </copy>
+
+
+
+        <copy todir = "${server}webapps\Labs16\WEB-INF\classes">
+            <fileset dir = "${work}build" />
+        </copy>
+
+        <copy todir = "${server}webapps\Labs16\WEB-INF\lib">
+            <fileset dir = "web/WEB-INF/lib" />
+        </copy>
+    </target>
+</project>
