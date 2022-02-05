@@ -1,0 +1,43 @@
+<project name="Lab23" default = "copy" >
+<target name="init">     
+	<echo message="Building Lab23 Project" />
+	<property name = "server"
+		value = "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\Lab23\" />
+	<property name = "work"
+		value = "C:\Study\1Prog on Internet\Lab23\" />
+</target> 
+
+<target name="compile" depends ="init">
+	<delete verbose ="true">
+		<fileset dir="${work}build"/>
+	</delete>
+	<javac srcdir    = "${work}src" destdir   = "${work}build">
+		<classpath>
+			<fileset dir= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\lib\" />
+			<fileset file= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\lib\servlet-api.jar"/>
+			<fileset file= "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\lib\jsp-api.jar"/>
+		</classpath>
+	</javac>
+</target>
+
+<target name="create" depends ="compile">
+	<delete dir= "${server}" />
+	<mkdir dir= "${server}" />
+	<mkdir dir= "${server}WEB-INF" />
+	<mkdir dir= "${server}WEB-INF\lib" />
+	<mkdir dir= "${server}WEB-INF\classes" />
+</target>
+
+<target name="copy" depends ="create">
+	<copy file= "${work}WEB-INF\web.xml"
+          todir="${server}WEB-INF" />
+	<copy todir="${server}" >
+		<fileset dir="${work}jsp"/>
+	</copy>
+
+	<copy todir="${server}WEB-INF\classes">
+		 <fileset dir="${work}build"/>
+	</copy>
+</target>
+
+</project>

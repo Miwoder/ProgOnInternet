@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app  xmlns="http://java.sun.com/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"      
+      version="2.5">
+<display-name>Lab_23</display-name>
+
+	<context-param>
+		<param-name>doc-dir</param-name>
+		<param-value>C:\Study\File</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>Msdoc</servlet-name>
+		<servlet-class>Msdoc</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Msdoc</servlet-name>
+		<url-pattern>/Msdoc</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>FileUploader</servlet-name>
+		<servlet-class>FileUploader</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FileUploader</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	<servlet-name>Sss</servlet-name>
+	<servlet-class>Sss</servlet-class>
+</servlet> 
+<servlet-mapping>        
+	<servlet-name>Sss</servlet-name>
+	<url-pattern>/Sss</url-pattern>
+</servlet-mapping>
+
+<welcome-file-list>
+	<welcome-file>index.jsp</welcome-file>
+</welcome-file-list>
+
+</web-app>

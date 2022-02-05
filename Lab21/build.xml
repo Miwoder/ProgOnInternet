@@ -1,0 +1,37 @@
+<project name="lab21" default="copy">
+
+    <target name="init">
+        <echo message="Building lab21 Project" />
+        <property name="app" value="C:\Study\1Prog on Internet\Lab21\src\main"/>
+        <property name="server" value="C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <delete verbose="true">
+            <fileset dir="${app}\webapp\WEB-INF\classes"/>
+        </delete>
+        <javac srcdir="${app}\java\com\example\lab21"
+               destdir="${app}\webapp\WEB-INF\classes"
+               includeantruntime="false"
+        >
+            <classpath>
+                <file name="${server}\lib\servlet-api.jar"/>
+                <file name="${server}\lib\commons-httpclient-3.1.jar"/>
+                <file name="${server}\lib\jsp-api.jar"/>
+                <file name="${server}\lib\ojdbc7.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="create" depends ="compile" >
+        <delete dir="${server}\webapps\lab21\" />
+        <mkdir dir= "${server}\webapps\lab21\" />
+    </target>
+
+    <target name="copy" depends ="create">
+        <copy todir="${server}\webapps\lab21\" >
+            <fileset dir="${app}\webapp" includes="**"/>
+        </copy>
+    </target>
+
+</project>
