@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>Lab15</display-name>
+
+    <servlet>
+        <servlet-name>ServletUrl</servlet-name>
+        <servlet-class>ServletUrl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletUrl</servlet-name>
+        <url-pattern>/ServletUrl</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Ccc</servlet-name>
+        <servlet-class>Ccc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ccc</servlet-name>
+        <url-pattern>/Ccc</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Ccc1</servlet-name>
+        <servlet-class>Ccc1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ccc1</servlet-name>
+        <url-pattern>/Ccc1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Ccc2</servlet-name>
+        <servlet-class>Ccc2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ccc2</servlet-name>
+        <url-pattern>/Ccc2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Aaa</servlet-name>
+        <servlet-class>Aaa</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Aaa</servlet-name>
+        <url-pattern>/Aaa</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Bbb</servlet-name>
+        <servlet-class>Bbb</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Bbb</servlet-name>
+        <url-pattern>/Bbb</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OracleServlet</servlet-name>
+        <servlet-class>OracleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OracleServlet</servlet-name>
+        <url-pattern>/OracleServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CallProcedure</servlet-name>
+        <servlet-class>CallProcedure</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CallProcedure</servlet-name>
+        <url-pattern>/CallProcedure</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>F1</filter-name>
+        <filter-class>pack.F1</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>F1</filter-name>
+        <url-pattern>/Ccc</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>F2</filter-name>
+        <filter-class>pack.F2</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>F2</filter-name>
+        <url-pattern>/Ccc.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>F2</filter-name>
+        <url-pattern>/Ccc</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>F3</filter-name>
+        <filter-class>pack.F3</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>F3</filter-name>
+        <url-pattern>/Ccc</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>pack.L1</listener-class>
+    </listener>
+    <listener>
+        <listener-class>pack.L2</listener-class>
+    </listener>
+
+
+    <context-param>
+        <param-name>URL1</param-name>
+        <param-value>http://172.16.193.69:8080/AS_3022BAU/index.html</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>URL2</param-name>
+        <param-value>http://172.16.193.69:8080/AS_3022BAU/Sss</param-value>
+    </context-param>
+
+</web-app>
+

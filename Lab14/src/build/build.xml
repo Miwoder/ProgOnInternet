@@ -1,0 +1,68 @@
+<project name="Lab14" default = "copy" >
+    <target name="init">
+        <echo message="Build Lab14 Project" />
+        <property name = "server"
+                  value = "C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\" />
+        <property name = "VPN"
+                  value = "\\172.16.193.69\webapps\AS_3022GVA" />
+        <property name = "work"
+                  value = "C:\Study\1Prog on Internet\Lab14\" />
+    </target>
+
+    <target name="compile" depends ="init">
+        <javac target="1.8" srcdir = "${work}src"
+               destdir = "${work}src\build" includeantruntime="false">
+            <classpath>
+                <fileset file="${server}lib\servlet-api.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="create" depends ="compile">
+        <delete dir= "${server}webapps\Lab14\" />
+        <mkdir dir= "${server}webapps\Lab14\" />
+        <mkdir dir= "${server}webapps\Lab14\WEB-INF" />
+
+        <delete dir= "${VPN}\images\" />
+        <delete dir= "${VPN}\WEB-INF\" />
+        <delete dir= "${VPN}" />
+        <mkdir dir= "${VPN}\images" />
+        <mkdir dir= "${VPN}\WEB-INF" />
+    </target>
+
+    <target name="copy" depends ="create">
+        <copy file= "${work}WEB-INF\web.xml"
+              todir="${server}webapps\Lab14\WEB-INF\" />
+        <copy file= "${work}index.jsp"
+              todir="${server}webapps\Lab14\" />
+        <copy file= "${work}afternoon.jsp"
+              todir="${server}webapps\Lab14\" />
+        <copy file= "${work}evening.jsp"
+              todir="${server}webapps\Lab14\" />
+        <copy file= "${work}morning.jsp"
+              todir="${server}webapps\Lab14\" />
+        <copy file= "${work}night.jsp"
+              todir="${server}webapps\Lab14\" />
+        <copy todir="${server}webapps\Lab14\WEB-INF\classes">
+            <fileset dir="${work}src\build"/>
+        </copy>
+
+        <copy file= "${work}WEB-INF\web.xml"
+              todir="${VPN}\WEB-INF\" />
+        <copy file= "${work}index.jsp"
+              todir="${VPN}\" />
+        <copy file= "${work}afternoon.jsp"
+              todir="${VPN}\" />
+        <copy file= "${work}evening.jsp"
+              todir="${VPN}\" />
+        <copy file= "${work}morning.jsp"
+              todir="${VPN}\" />
+        <copy file= "${work}night.jsp"
+              todir="${VPN}\" />
+        <copy todir="${VPN}\WEB-INF\classes">
+            <fileset dir="${work}src\build"/>
+        </copy>
+
+
+    </target>
+</project>

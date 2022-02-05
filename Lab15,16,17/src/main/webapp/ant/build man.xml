@@ -1,0 +1,47 @@
+<project name="AS_3022GVA" default = "copy" >
+    <target name="init">
+        <echo message="Building AS_3022GVA Project" />
+        <property name = "server"
+                  value = "\\172.16.193.69\" />
+        <property name = "work"
+                  value = "C:\Study\1Prog on Internet\Lab15,16,17\" />
+    </target>
+
+    <target name="compile" depends ="init">
+        <delete verbose ="true">
+            <fileset dir="${work}build"/>
+        </delete>
+        <javac srcdir    = "${work}src" destdir   = "${work}build">
+            <classpath>
+                <fileset dir= "${work}lib\" />
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="create" depends ="compile">
+        <delete dir= "${server}webapps\AS_3022GVA\" />
+        <mkdir dir= "${server}webapps\AS_3022GVA\" />
+        <mkdir dir= "${server}webapps\AS_3022GVA\lib" />
+        <mkdir dir= "${server}webapps\AS_3022GVA\image" />
+<!--        <mkdir dir= "${server}webapps\Lab15\WEB-INF" />-->
+    </target>
+
+    <target name="copy" depends ="create">
+        <copy file= "${work}\src\main\webapp\WEB-INF\web.xml"
+              todir="${server}webapps\AS_3022GVA\WEB-INF\" />
+<!--        <copy file= "${work}labTag.tld"-->
+<!--              todir="${server}webapps\Lab15\WEB-INF" />-->
+        <copy file= "${work}index.html"
+              todir="${server}webapps\AS_3022GVA\" />
+        <copy todir="${server}webapps\AS_3022GVA\WEB-INF\lib">
+            <fileset dir="${work}lib"/>
+        </copy>
+        <copy todir="${server}webapps\AS_3022GVA\">
+            <fileset dir="${work}jsp"/>
+        </copy>
+        <copy todir="${server}webapps\AS_3022GVA\WEB-INF\classes">
+            <fileset dir="${work}build"/>
+        </copy>
+    </target>
+
+</project>
